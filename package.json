@@ -1,0 +1,60 @@
+{
+  "name": "opendev-inspector",
+  "version": "0.1.0",
+  "description": "Local-first project security and health analyzer",
+  "author": "João",
+  "homepage": "https://github.com/JoaoMitsuyuki/opendev-inspector#readme",
+  "bugs": {
+    "url": "https://github.com/JoaoMitsuyuki/opendev-inspector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoMitsuyuki/opendev-inspector.git"
+  },
+  "type": "module",
+  "bin": {
+    "opendev": "dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/cli/index.ts",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepack": "npm run check",
+    "check": "npm run lint && npm run format:check && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "security",
+    "scanner",
+    "cli",
+    "secrets",
+    "static-analysis"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^10.15.0",
+    "prettier": "^3.7.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^4.0.13"
+  }
+}
